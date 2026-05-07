@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Designs by Devesh</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@700;900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;}
+body{background:#f0ede8;font-family:'Inter',sans-serif;overflow-x:hidden;min-height:100vh;color:#000;}
+
+body::after{
+  content:'';position:fixed;inset:0;
+  background-image:url('https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/cardboard-texture 1.png');
+  background-size:cover;mix-blend-mode:multiply;
+  pointer-events:none;z-index:900;opacity:.28;
+}
+
+/* ── HEADER ── */
+.site-header{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  height:clamp(56px,6.5vw,88px);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(20px,3.5vw,56px);
+  background-image:url('https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/headerED img 2.png');
+  background-size:cover;background-position:center top;
+}
+.site-header .logo{height:clamp(34px,3.2vw,55px);object-fit:contain;}
+.site-header nav{display:flex;gap:clamp(18px,2.8vw,50px);}
+.site-header nav a{color:#fff;text-decoration:none;font-size:clamp(13px,1vw,17px);font-weight:500;opacity:.45;transition:opacity .22s;}
+.site-header nav a.active,.site-header nav a:hover{opacity:1;}
+.site-header .hicons img{height:clamp(26px,2.2vw,38px);}
+
+/* ── CONTACT ── */
+.contact-page{
+  position:relative;min-height:100vh;
+  padding:clamp(100px,13vh,160px) clamp(40px,7.7vw,130px) 80px;
+  overflow:hidden;
+}
+.contact-page .tex{
+  position:absolute;top:-5%;left:-2%;width:110%;height:115%;
+  object-fit:cover;mix-blend-mode:multiply;pointer-events:none;z-index:0;opacity:.55;
+}
+.contact-page>*:not(.tex){position:relative;z-index:1;}
+
+/* Heading */
+.reach{
+  font-family:'Inter',sans-serif;font-weight:700;
+  font-size:clamp(36px,5vw,80px);
+  line-height:1.1;color:#000;
+  margin-bottom:clamp(14px,2vw,28px);
+}
+.sub{
+  font-family:'Inter',sans-serif;font-weight:500;
+  font-size:clamp(13px,1.3vw,22px);line-height:1.6;
+  color:#111;max-width:clamp(360px,68vw,1100px);
+  margin-bottom:clamp(20px,3vw,40px);
+}
+.handle{
+  font-family:'Inter',sans-serif;font-weight:700;
+  font-size:clamp(14px,1.6vw,26px);
+  color:#000;text-decoration:none;display:inline-block;
+  margin-bottom:clamp(28px,5vw,72px);
+  position:relative;
+}
+.handle::after{
+  content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;
+  background:#000;transition:width .3s;
+}
+.handle:hover::after{width:100%;}
+
+/* Form */
+.form-field{margin-bottom:0;}
+.fl{
+  font-family:'Inter',sans-serif;font-weight:700;
+  font-size:clamp(13px,1.2vw,20px);color:#000;
+  display:block;
+  padding:clamp(14px,2vw,28px) 0 clamp(6px,.8vw,12px);
+}
+.fi{
+  display:block;
+  width:clamp(280px,58.5vw,984px);
+  background:transparent;border:none;
+  border-bottom:1.5px solid #000;
+  padding:0 0 clamp(8px,.9vw,14px);
+  font-family:'Inter',sans-serif;
+  font-size:clamp(13px,1.1vw,18px);font-weight:400;color:#000;
+  outline:none;transition:border-color .22s;
+}
+.fi:focus{border-bottom-color:#555;}
+.fi::placeholder{color:#bbb;}
+textarea.fi{resize:none;height:clamp(50px,7vh,100px);padding-top:6px;}
+
+.send-btn{
+  margin-top:clamp(28px,4vw,56px);
+  display:inline-flex;align-items:center;gap:10px;
+  background:#000;color:#fff;border:none;
+  border-radius:60px;
+  padding:clamp(11px,1.1vw,18px) clamp(22px,2.8vw,44px);
+  font-family:'Inter',sans-serif;font-weight:700;
+  font-size:clamp(14px,1.3vw,22px);
+  cursor:pointer;transition:background .22s,transform .15s;
+}
+.send-btn:hover{background:#222;transform:scale(1.02);}
+.send-btn .arr{transition:transform .22s;}
+.send-btn:hover .arr{transform:translateX(4px);}
+
+.success{
+  display:none;margin-top:20px;
+  padding:14px 20px;
+  background:rgba(0,0,0,.06);border-left:3px solid #000;
+  border-radius:4px;font-size:clamp(13px,1.1vw,18px);color:#000;
+  max-width:clamp(280px,50vw,700px);
+}
+
+/* ── FOOTER ── */
+.site-footer{
+  background:#000;
+  padding:clamp(20px,2.5vw,34px) clamp(40px,6vw,130px);
+  display:flex;align-items:center;justify-content:space-between;
+  position:relative;z-index:10;
+}
+.site-footer img{height:clamp(32px,3vw,52px);}
+.site-footer nav{display:flex;gap:clamp(14px,2vw,32px);}
+.site-footer nav a{color:#fff;text-decoration:none;font-size:clamp(11px,.85vw,14px);opacity:.55;transition:opacity .2s;}
+.site-footer nav a:hover{opacity:1;}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1);}
+.rv.d1{transition-delay:.08s;}.rv.d2{transition-delay:.14s;}.rv.d3{transition-delay:.2s;}.rv.d4{transition-delay:.26s;}.rv.d5{transition-delay:.32s;}
+.rv.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <img class="logo" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/ddw 2.png" alt="DDW">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
+  <div class="hicons"><img src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/glass ui.png" alt=""></div>
+</header>
+
+<section class="contact-page">
+  <img class="tex" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/cardboard-texture 1.png" alt="">
+
+  <h1 class="reach rv">Reach out.</h1>
+  <p class="sub rv d1">Feel free to get in touch. I'd be happy to connect whether you're interested in collaborating on a project, discussing a commission, or just saying hello.</p>
+  <a class="handle rv d2" href="https://instagram.com/workbydevesh" target="_blank">@workbydevesh</a>
+
+  <form id="cf" onsubmit="send(event)">
+    <div class="form-field rv d2">
+      <label class="fl" for="n">Name</label>
+      <input class="fi" type="text" id="n" placeholder="" required>
+    </div>
+    <div class="form-field rv d3">
+      <label class="fl" for="e">Email</label>
+      <input class="fi" type="email" id="e" placeholder="" required>
+    </div>
+    <div class="form-field rv d4">
+      <label class="fl" for="p">Phone</label>
+      <input class="fi" type="tel" id="p" placeholder="">
+    </div>
+    <div class="form-field rv d5">
+      <label class="fl" for="m">Message</label>
+      <textarea class="fi" id="m" rows="3" required></textarea>
+    </div>
+    <button class="send-btn rv d5" type="submit">
+      Send <span class="arr">→</span>
+    </button>
+    <div class="success" id="ok">Message sent — I'll be in touch soon.</div>
+  </form>
+</section>
+
+<footer class="site-footer">
+  <img src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/ddw 2.png" alt="DDW">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in');}),{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+function send(e){
+  e.preventDefault();
+  const btn = e.target.querySelector('.send-btn');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  setTimeout(()=>{
+    document.getElementById('ok').style.display='block';
+    document.getElementById('cf').reset();
+    btn.innerHTML='Sent ✓';
+  },1000);
+}
+</script>
+</body>
+</html>

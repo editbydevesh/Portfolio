@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Designs by Devesh</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@700;900&family=Inter:wght@400;500;700&family=Lexend:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+body{background:#f0ede8;font-family:'Inter',sans-serif;overflow-x:hidden;}
+
+/* ── HEADER ── */
+.site-header{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  height:clamp(56px,6.5vw,88px);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(20px,3.5vw,56px);
+  background-image:url('https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/headerED img 2.png');
+  background-size:cover;background-position:center top;
+}
+.site-header .logo{height:clamp(34px,3.2vw,55px);object-fit:contain;}
+.site-header nav{display:flex;gap:clamp(18px,2.8vw,50px);}
+.site-header nav a{
+  color:#fff;text-decoration:none;
+  font-size:clamp(13px,1vw,17px);font-weight:500;
+  opacity:0.45;transition:opacity .22s;
+}
+.site-header nav a.active,.site-header nav a:hover{opacity:1;}
+.site-header .hicons img{height:clamp(26px,2.2vw,38px);}
+
+/* ── SCROLL CONTAINER ── */
+#home-scroll{height:700vh;}
+
+/* ── STICKY VIEWPORT ── */
+#home-sticky{
+  position:sticky;top:0;
+  height:100vh;width:100vw;
+  overflow:hidden;
+}
+
+/* ── BACKGROUND ── */
+.bg-paper{
+  position:absolute;inset:0;
+  background:#f0ede8;
+  z-index:0;
+}
+.bg-texture{
+  position:absolute;inset:-5%;
+  width:110%;height:110%;
+  background-image:url('https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/cardboard-texture 1.png');
+  background-size:cover;
+  mix-blend-mode:multiply;
+  opacity:.4;
+  pointer-events:none;
+  z-index:8;
+}
+
+/* ── DARK SHADOW BLOBS ── */
+.blob{
+  position:absolute;
+  width:clamp(200px,38vw,680px);
+  height:clamp(340px,65vh,700px);
+  background:radial-gradient(ellipse 60% 80% at center,rgba(20,18,16,0.55) 0%,rgba(20,18,16,0.25) 45%,transparent 80%);
+  border-radius:50%;
+  top:0;
+  pointer-events:none;
+  z-index:4;
+}
+.blob-l{left:-10%;}
+.blob-r{right:-10%;}
+
+/* ── INK BRANCH BG (LP2) ── */
+#ink-bg{
+  position:absolute;
+  top:5%;left:-2%;
+  width:104%;height:100%;
+  object-fit:cover;
+  opacity:0;
+  pointer-events:none;
+  z-index:3;
+}
+
+/* ── HERO TEXT (LP2) ── */
+#hero-text{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  white-space:nowrap;
+  font-family:'Lato',sans-serif;
+  font-weight:700;
+  font-size:clamp(30px,5.7vw,96px);
+  letter-spacing:-0.011em;
+  line-height:1;
+  z-index:10;
+  opacity:0;
+  pointer-events:none;
+  color:#000;
+}
+#hero-text .hl{background:#000;color:#fff;padding:.05em .18em;}
+
+/* ── TREE ── */
+#tree{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  width:clamp(180px,58vw,980px);
+  /* top driven by JS */
+  z-index:6;
+  pointer-events:none;
+  opacity:0;
+}
+
+/* ── GLASS BUTTONS ── */
+.gbtn{
+  position:absolute;
+  background:rgba(245,242,238,0.65);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,0.75);
+  border-radius:clamp(8px,.9vw,15px);
+  padding:clamp(7px,.7vw,12px) clamp(14px,1.4vw,24px);
+  font-family:'Lexend',sans-serif;
+  font-size:clamp(11px,1vw,18px);
+  font-weight:500;
+  color:#111;
+  white-space:nowrap;
+  box-shadow:0 4px 18px rgba(0,0,0,0.07),inset 0 1px 0 rgba(255,255,255,0.9);
+  z-index:12;
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1);
+}
+.gbtn.on{opacity:1;transform:translateY(0);}
+
+/* exact positions from screenshots */
+#b-logo     {left:24%;top:44%;}
+#b-brand    {left:60%;top:82%;}
+#b-poster   {left:54%;top:48%;}
+#b-clothing {left:22%;top:81%;}
+#b-pack     {left:26%;top:28%;}
+#b-social   {left:60%;top:83%;}
+
+/* ── BIO SECTION (LP6) ── */
+#bio{
+  position:absolute;
+  inset:0;
+  padding:clamp(60px,9vh,130px) clamp(30px,5vw,80px) 0;
+  z-index:9;
+  opacity:0;
+  pointer-events:none;
+  display:flex;flex-direction:column;
+}
+#bio.on{opacity:1;pointer-events:auto;}
+#bio p{
+  font-family:'Inter',sans-serif;
+  font-size:clamp(14px,1.4vw,24px);
+  font-weight:500;
+  line-height:1.72;
+  max-width:clamp(340px,62vw,1000px);
+  color:#111;
+  margin-top:clamp(16px,2.5vh,42px);
+}
+.site-footer{
+  background:#000;
+  padding:clamp(18px,2vw,30px) clamp(30px,5vw,80px);
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:auto;
+  width:calc(100% + clamp(60px,10vw,160px));
+  margin-left:calc(-1 * clamp(30px,5vw,80px));
+  position:relative;z-index:20;
+}
+.site-footer img{height:clamp(32px,3vw,52px);}
+.site-footer nav{display:flex;gap:clamp(14px,1.8vw,30px);}
+.site-footer nav a{color:#fff;text-decoration:none;font-size:clamp(11px,.85vw,14px);opacity:.55;transition:opacity .2s;}
+.site-footer nav a:hover{opacity:1;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <img class="logo" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/ddw 2.png" alt="DDW">
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="hicons"><img src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/glass ui.png" alt=""></div>
+</header>
+
+<div id="home-scroll">
+  <div id="home-sticky">
+    <div class="bg-paper"></div>
+    <div class="bg-texture"></div>
+
+    <div class="blob blob-l" id="bl"></div>
+    <div class="blob blob-r" id="br"></div>
+
+    <img id="ink-bg" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/ink-branch-bg 2.png" alt="">
+
+    <div id="hero-text"><span class="hl">DESIGNS</span>&nbsp;BY&nbsp;DEVESH</div>
+
+    <img id="tree" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/ink-branch-[Converted] 1.png" alt="">
+
+    <div class="gbtn" id="b-logo">Logo Design</div>
+    <div class="gbtn" id="b-brand">Brand Identity</div>
+    <div class="gbtn" id="b-poster">Poster Design</div>
+    <div class="gbtn" id="b-clothing">Clothing Graphic</div>
+    <div class="gbtn" id="b-pack">Packaging Design</div>
+    <div class="gbtn" id="b-social">Social Media Post</div>
+
+    <div id="bio">
+      <p>The roots which shaped my early experiences strengthened my skills, sharpened my creativity, and instilled dedication in my design practice grounding my work in meaning, sensitivity, and intent.</p>
+      <footer class="site-footer">
+        <img src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/ddw 2.png" alt="DDW">
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const tree    = $('tree');
+const inkBg   = $('ink-bg');
+const heroTxt = $('hero-text');
+const blobL   = $('bl');
+const blobR   = $('br');
+const bio     = $('bio');
+const btns    = ['b-logo','b-brand','b-poster','b-clothing','b-pack','b-social'].map($);
+
+// Tree top-position in vh for each of the 7 sections (0-indexed)
+// Based on Figma y-coordinates scaled to 100vh (Figma h=1046)
+// LP1=s0: tree hidden below
+// LP2=s1: hero text, tree hidden
+// LP3=s2: treeY=+23vh
+// LP4=s3: treeY=-53vh
+// LP5=s4: treeY=-158vh
+// LP6=s5: treeY=-320vh
+// extra s6 = same as s5 (hold)
+const TREE_TOP = [115, 115, 23, -53, -158, -320, -320];
+
+// Which buttons visible per section
+const VISIBLE = [
+  [],             // s0
+  [],             // s1 hero
+  [0,1],          // s2 logo+brand
+  [0,1,2,3],      // s3 +poster+clothing
+  [0,1,2,3,4,5],  // s4 all 6
+  [],             // s5 bio
+  [],
+];
+
+function lerp(a,b,t){return a+(b-a)*t;}
+
+let prevBtns = [];
+
+function tick(){
+  const sy  = window.scrollY;
+  const vh  = window.innerHeight;
+  const sec = sy / vh;            // float section index
+  const si  = Math.floor(sec);   // integer
+  const p   = sec - si;          // 0–1 progress within section
+
+  const s  = Math.min(si, 6);
+  const s1 = Math.min(s+1, 6);
+
+  // ── tree Y
+  const ty = lerp(TREE_TOP[s], TREE_TOP[s1], p);
+  tree.style.top = ty + 'vh';
+
+  // ── blob opacity: full in s0, fade out through s2
+  const bOp = Math.max(0, 1 - Math.max(0,(sec-1)));
+  blobL.style.opacity = bOp;
+  blobR.style.opacity = bOp;
+
+  // ── ink bg: visible in s1
+  const inkOp = s===1 ? 0.5 : (s===0 && p>.6 ? (p-.6)/.4*.5 : 0);
+  inkBg.style.opacity = inkOp;
+
+  // ── hero text: visible in s1
+  heroTxt.style.opacity = (s===1) ? 1 : 0;
+
+  // ── tree opacity: visible s2–s4
+  tree.style.opacity = (s>=2 && s<=4) ? 1 : (s===5 ? Math.max(0,1-p*3) : 0);
+
+  // ── bio
+  bio.classList.toggle('on', s >= 5);
+
+  // ── buttons
+  const vis = VISIBLE[Math.min(s,6)] || [];
+  btns.forEach((btn,i) => {
+    const should = vis.includes(i);
+    if(should && !btn.classList.contains('on')){
+      setTimeout(()=>btn.classList.add('on'), i*90);
+    } else if(!should){
+      btn.classList.remove('on');
+    }
+  });
+}
+
+window.addEventListener('scroll', tick, {passive:true});
+window.addEventListener('resize', tick);
+tick();
+</script>
+</body>
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | Designs by Devesh</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@700;900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#f0ede8;font-family:'Inter',sans-serif;overflow-x:hidden;color:#000;}
+
+body::after{
+  content:'';position:fixed;inset:0;
+  background-image:url('https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/cardboard-texture 1.png');
+  background-size:cover;mix-blend-mode:multiply;
+  pointer-events:none;z-index:900;opacity:.28;
+}
+
+/* ── HEADER ── */
+.site-header{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  height:clamp(56px,6.5vw,88px);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(20px,3.5vw,56px);
+  background-image:url('https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/headerED img 2.png');
+  background-size:cover;background-position:center top;
+}
+.site-header .logo{height:clamp(34px,3.2vw,55px);object-fit:contain;}
+.site-header nav{display:flex;gap:clamp(18px,2.8vw,50px);}
+.site-header nav a{color:#fff;text-decoration:none;font-size:clamp(13px,1vw,17px);font-weight:500;opacity:.45;transition:opacity .22s;}
+.site-header nav a.active,.site-header nav a:hover{opacity:1;}
+.site-header .hicons img{height:clamp(26px,2.2vw,38px);}
+
+/* ── SECTION ── */
+.proj-sec{
+  position:relative;
+  width:100%;min-height:100vh;
+  padding:clamp(90px,10vh,140px) clamp(40px,6vw,130px) clamp(60px,8vh,120px);
+  overflow:hidden;
+  background:#f0ede8;
+}
+.proj-sec .tex{
+  position:absolute;top:-5%;left:-2%;width:110%;height:115%;
+  object-fit:cover;mix-blend-mode:multiply;
+  pointer-events:none;z-index:0;opacity:.55;
+}
+.proj-sec > *:not(.tex){position:relative;z-index:1;}
+
+.proj-title{
+  font-family:'Inter',sans-serif;font-weight:700;
+  font-size:clamp(18px,1.9vw,32px);
+  line-height:1.3;letter-spacing:-.01em;
+  margin-bottom:clamp(24px,4vw,60px);
+  max-width:clamp(300px,45vw,760px);
+}
+
+.proj-body{
+  display:grid;
+  gap:clamp(20px,3vw,56px);
+  align-items:start;
+}
+.two-col{grid-template-columns:1fr 1fr;}
+
+.proj-desc{
+  font-family:'Inter',sans-serif;font-weight:700;
+  font-size:clamp(13px,1.3vw,22px);
+  line-height:1.55;letter-spacing:-.01em;
+  color:#000;
+}
+
+/* ── LUKES ── */
+#lukes .proj-body{align-items:center;}
+.lukes-left{display:flex;flex-direction:column;gap:clamp(16px,2vw,36px);}
+.lukes-logo{width:clamp(140px,22vw,380px);}
+.lukes-pkg{width:100%;max-width:clamp(280px,42vw,700px);}
+.lukes-right{position:relative;}
+.lukes-cup{width:clamp(180px,46vw,780px);}
+.lukes-tape{
+  position:absolute;
+  bottom:-8%;left:-18%;
+  width:clamp(100px,18vw,310px);
+}
+
+/* ── KHAJURAHO ── */
+.khaj-left img{width:100%;max-width:clamp(280px,45vw,760px);border-radius:4px;}
+.khaj-right{display:flex;flex-direction:column;gap:clamp(12px,1.5vw,24px);}
+.khaj-right img{width:100%;max-width:clamp(200px,34vw,580px);}
+
+/* ── LIGHTNING ── */
+.light-left{display:flex;flex-direction:column;gap:clamp(16px,2vw,30px);}
+.light-left img{max-width:clamp(180px,23vw,395px);}
+.light-right{position:relative;}
+.light-mock{width:clamp(200px,48vw,800px);}
+.light-net{
+  position:absolute;top:5%;right:-5%;
+  width:clamp(140px,22vw,380px);
+}
+
+/* ── NATURAL PRO ── */
+.np-left{display:flex;flex-direction:column;gap:clamp(16px,2vw,30px);}
+.np-left img{max-width:clamp(200px,36vw,600px);}
+.np-right{position:relative;display:flex;flex-direction:column;gap:clamp(10px,1.2vw,20px);align-items:flex-end;}
+.np-mock{width:clamp(180px,42vw,700px);}
+.np-photos{display:flex;gap:clamp(8px,1vw,18px);}
+.np-photos img{width:clamp(100px,15vw,260px);}
+
+/* ── OTHER LOGOS ── */
+#other .proj-body{grid-template-columns:repeat(3,1fr);}
+.logo-card{display:flex;flex-direction:column;gap:clamp(8px,1vw,16px);}
+.logo-card img{width:100%;border-radius:6px;aspect-ratio:4/3;object-fit:cover;}
+.logo-label{
+  font-family:'Inter',sans-serif;font-weight:700;
+  font-size:clamp(10px,.85vw,14px);line-height:1.4;color:#000;
+}
+
+/* ── PHOTO CAROUSEL ── */
+#photos{
+  min-height:100vh;
+  padding:clamp(90px,10vh,140px) 0 clamp(60px,8vh,100px);
+  position:relative;overflow:hidden;
+  background:#f0ede8;
+}
+#photos .tex{
+  position:absolute;top:-5%;left:-2%;width:110%;height:115%;
+  object-fit:cover;mix-blend-mode:multiply;pointer-events:none;z-index:0;opacity:.55;
+}
+.photo-header{
+  position:relative;z-index:2;
+  padding:0 clamp(40px,6vw,130px) clamp(24px,3vw,40px);
+}
+.photo-header h2{
+  font-family:'Inter',sans-serif;font-weight:700;
+  font-size:clamp(22px,2.8vw,52px);color:#000;
+}
+
+.carousel-outer{
+  position:relative;z-index:2;
+  width:100%;overflow:hidden;
+}
+.carousel-track{
+  display:flex;
+  gap:clamp(8px,1vw,18px);
+  padding:0 clamp(40px,6vw,130px);
+  align-items:center;
+}
+.photo-item{
+  flex:0 0 auto;
+  width:clamp(140px,21.8vw,366px);
+  height:clamp(180px,29vw,485px);
+  border-radius:8px;overflow:hidden;cursor:pointer;
+  transition:width .6s cubic-bezier(.22,1,.36,1),
+             height .6s cubic-bezier(.22,1,.36,1),
+             box-shadow .4s;
+}
+.photo-item.active{
+  width:clamp(200px,31.3vw,527px);
+  height:clamp(250px,42vh,700px);
+  box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+.photo-item img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;}
+
+.carousel-info{
+  position:relative;z-index:2;
+  padding:clamp(20px,2.5vw,36px) clamp(40px,6vw,130px) 0;
+  min-height:clamp(80px,12vh,140px);
+}
+.cap-title{
+  font-family:'Inter',sans-serif;font-weight:700;
+  font-size:clamp(14px,1.5vw,26px);color:#000;line-height:1.3;
+  margin-bottom:clamp(6px,.7vw,12px);
+}
+.cap-desc{
+  font-family:'Inter',sans-serif;font-size:clamp(12px,1.1vw,19px);font-weight:500;
+  color:#444;line-height:1.6;max-width:clamp(260px,35vw,560px);
+}
+
+.carousel-nav{
+  position:relative;z-index:2;
+  display:flex;gap:12px;align-items:center;
+  padding:clamp(14px,2vw,24px) clamp(40px,6vw,130px) 0;
+}
+.carousel-nav button{
+  width:clamp(36px,2.8vw,46px);height:clamp(36px,2.8vw,46px);
+  border-radius:50%;border:none;
+  background:#000;color:#fff;
+  font-size:clamp(14px,1.2vw,20px);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:background .2s,transform .15s;
+}
+.carousel-nav button:hover{background:#333;transform:scale(1.06);}
+.dots{display:flex;gap:7px;margin-left:12px;align-items:center;}
+.dot{
+  width:7px;height:7px;border-radius:50%;background:#bbb;
+  cursor:pointer;transition:background .3s,transform .3s;
+}
+.dot.on{background:#000;transform:scale(1.35);}
+
+/* ── CLOTHING ── */
+#clothing .proj-body{grid-template-columns:repeat(4,1fr);}
+#clothing .proj-body img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:6px;}
+
+/* ── FOOTER ── */
+.site-footer{
+  background:#000;
+  padding:clamp(20px,2.5vw,34px) clamp(40px,6vw,130px);
+  display:flex;align-items:center;justify-content:space-between;
+  position:relative;z-index:10;
+}
+.site-footer img{height:clamp(32px,3vw,52px);}
+.site-footer nav{display:flex;gap:clamp(14px,2vw,32px);}
+.site-footer nav a{color:#fff;text-decoration:none;font-size:clamp(11px,.85vw,14px);opacity:.55;transition:opacity .2s;}
+.site-footer nav a:hover{opacity:1;}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1);}
+.rv.d1{transition-delay:.1s;}.rv.d2{transition-delay:.2s;}.rv.d3{transition-delay:.3s;}
+.rv.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <img class="logo" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/ddw 2.png" alt="DDW">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="hicons"><img src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/glass ui.png" alt=""></div>
+</header>
+
+<!-- LUKE'S ICED COFFEE -->
+<section class="proj-sec" id="lukes">
+  <img class="tex" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/cardboard-texture 1.png" alt="">
+  <div class="proj-title rv">LOGO &amp; PACKAGING OF LUKE'S ICED COFFEE</div>
+  <div class="proj-body two-col">
+    <div class="lukes-left">
+      <img class="lukes-logo rv d1" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/Luke'sb 1.png" alt="Luke's Logo">
+      <p class="proj-desc rv d2">Luke's Iced Coffees is embarking on an exciting venture. Brand personality that is both edgy and cool. The design resonate with modern sensibilities while also allowing for a touch of vintage charm. The brand convey qualities such as innovation, approach-ability, and a genuine connection with its audience.</p>
+      <img class="lukes-pkg rv d3" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/LUKE's-packaging-design2 1.png" alt="Packaging">
+    </div>
+    <div class="lukes-right">
+      <img class="lukes-cup rv d1" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/LUKE'S-coffee-Cup 1.png" alt="Coffee Cup">
+      <img class="lukes-tape rv d2" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/LUKE'S-Duct_Tape_Mockup 1.png" alt="Tape">
+    </div>
+  </div>
+</section>
+
+<!-- KHAJURAHO -->
+<section class="proj-sec" id="khajuraho">
+  <img class="tex" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/cardboard-texture 1.png" alt="">
+  <div class="proj-title rv">COMBINATION MARK LOGO OF KHAJURAHO DANCE FESTIVAL</div>
+  <div class="proj-body two-col">
+    <div class="khaj-left"><img class="rv d1" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/khajutext 1.png" alt="Khajuraho Logo"></div>
+    <div class="khaj-right">
+      <img class="rv d1" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/khajurao-Circle_Card_Mockup 1.png" alt="Circle Card">
+      <img class="rv d2" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/khajurao-Tote_Bag_Mockup 1.png" alt="Tote Bag">
+      <p class="proj-desc rv d3">Central Motif: Two stylized dancing feet with traditional anklets, wrapped in sari-like fabric with intricate Indian patterns. Mandala Motif: A vibrant red mandala with red, green, blue, and orange geometric and floral designs, adding an ethnic touch reflective of Indian art and culture.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTNING NETWORKS -->
+<section class="proj-sec" id="lightning">
+  <img class="tex" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/cardboard-texture 1.png" alt="">
+  <div class="proj-title rv">COMBINATION MARK LOGO OF LIGHTNING NETWORKS</div>
+  <div class="proj-body two-col">
+    <div class="light-left">
+      <img class="rv d1" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/20250413_152054 1.png" alt="Photo">
+      <p class="proj-desc rv d2">The logo, featuring a blue lightning bolt and green network bars forming an "L", represents a brand dedicated to delivering fast and reliable internet services.</p>
+    </div>
+    <div class="light-right">
+      <img class="light-mock rv d1" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/lighting logo mockup 1.png" alt="Mockup">
+      <img class="light-net rv d2" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/lighting network mock 1.png" alt="Network">
+    </div>
+  </div>
+</section>
+
+<!-- NATURAL PRO -->
+<section class="proj-sec" id="naturalpro">
+  <img class="tex" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/cardboard-texture 1.png" alt="">
+  <div class="proj-title rv">COMBINATION MARK LOGO OF NATURAL PRO</div>
+  <div class="proj-body two-col">
+    <div class="np-left">
+      <img class="rv d1" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/NaturalPRO 2.png" alt="Natural Pro Logo">
+      <p class="proj-desc rv d2">The protein brand "NATURAL PRO" has a simple yet impactful design. It features an arm flexing a bicep, holding a dumbbell. The bicep has mountain peaks embedded within it, symbolizing strength, resilience, and perhaps a natural or organic quality.</p>
+    </div>
+    <div class="np-right">
+      <img class="np-mock rv d1" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/NaturalPRO-mockup 1.png" alt="Mockup">
+      <div class="np-photos">
+        <img class="rv d2" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/20250413_152022 1.png" alt="">
+        <img class="rv d3" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/20241130_194856 1.png" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OTHER LOGOS -->
+<section class="proj-sec" id="other">
+  <img class="tex" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/cardboard-texture 1.png" alt="">
+  <div class="proj-title rv">Some other Logo's</div>
+  <div class="proj-body">
+    <div class="logo-card">
+      <img class="rv d1" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/dbd.png" alt="Monogram">
+      <div class="logo-label rv d2">MONOGRAM LOGO OF DESIGN'S BY DEVESH</div>
+    </div>
+    <div class="logo-card">
+      <img class="rv d1" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/google 25th.png" alt="Google">
+      <div class="logo-label rv d2">LOGO IDEATION OF GOOGLE 25th ANNIVERSARY</div>
+    </div>
+    <div class="logo-card">
+      <img class="rv d1" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/softpolka.png" alt="Soft Polka">
+      <div class="logo-label rv d2">PICTORIAL MARK LOGO OF SOFT POLKA</div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTOGRAPHY CAROUSEL -->
+<section id="photos">
+  <img class="tex" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/cardboard-texture 1.png" alt="">
+  <div class="photo-header rv"><h2>Photography</h2></div>
+
+  <div class="carousel-outer">
+    <div class="carousel-track" id="cTrack">
+      <div class="photo-item active" data-i="0" onclick="go(0)">
+        <img src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/photography/Rectangle.png" alt="">
+      </div>
+      <div class="photo-item" data-i="1" onclick="go(1)">
+        <img src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/photography/Rectangle 2.png" alt="">
+      </div>
+      <div class="photo-item" data-i="2" onclick="go(2)">
+        <img src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/photography/Rectangle 3.png" alt="">
+      </div>
+      <div class="photo-item" data-i="3" onclick="go(3)">
+        <img src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/photography/Rectangle 4.png" alt="">
+      </div>
+      <div class="photo-item" data-i="4" onclick="go(4)">
+        <img src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/photography/Rectangle 5.png" alt="">
+      </div>
+      <div class="photo-item" data-i="5" onclick="go(5)">
+        <img src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/photography/Rectangle 6.png" alt="">
+      </div>
+      <div class="photo-item" data-i="6" onclick="go(6)">
+        <img src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/photography/Rectangle 7.png" alt="">
+      </div>
+      <div class="photo-item" data-i="7" onclick="go(7)">
+        <img src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/photography/Rectangle 8.png" alt="">
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel-info">
+    <div class="cap-title" id="capT">CLOSEUP OF ART AND DESIGN</div>
+    <div class="cap-desc" id="capD">Each plate tells a unique story, about their art and design.</div>
+  </div>
+
+  <div class="carousel-nav">
+    <button onclick="go(cur-1)">&#8592;</button>
+    <button onclick="go(cur+1)">&#8594;</button>
+    <div class="dots" id="dots"></div>
+  </div>
+</section>
+
+<!-- CLOTHING -->
+<section class="proj-sec" id="clothing">
+  <img class="tex" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/cardboard-texture 1.png" alt="">
+  <div class="proj-title rv">Clothing Design</div>
+  <div class="proj-body">
+    <img class="rv d1" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/clothing/clothing (1).png" alt="">
+    <img class="rv d2" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/clothing/clothing (2).png" alt="">
+    <img class="rv d3" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/clothing/clothing (3).png" alt="">
+    <img class="rv d3" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/clothing/clothing (4).png" alt="">
+  </div>
+</section>
+
+<footer class="site-footer">
+  <img src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/ddw 2.png" alt="DDW">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</footer>
+
+<script>
+// ── Scroll reveal
+const rvEls = document.querySelectorAll('.rv');
+new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('in');} });
+},{threshold:.12}).observe || (() => {
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('in');} });
+  },{threshold:.12});
+  rvEls.forEach(el=>obs.observe(el));
+})();
+
+const obs = new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in');}),{threshold:.1});
+rvEls.forEach(el=>obs.observe(el));
+
+// ── Carousel
+const PHOTOS = [
+  {t:'CLOSEUP OF ART AND DESIGN',            d:'Each plate tells a unique story, about their art and design.'},
+  {t:'CAPTURED INTERIOR OF A CAFE',          d:'The image depicts an interior space of overall cozy atmosphere.'},
+  {t:'CAPTURED ARCHITECTURE OF A BUILDING',  d:'Group of buildings against a night sky with a moon.'},
+  {t:'PORTRAIT OF FEMALE MODEL',             d:'Visual stories of ordinary people in extraordinary circumstances.'},
+  {t:'COMBINATION OF SHADOWS AND LIGHTS',    d:'Stroll in the evening by the tree and grass. The outdoor lighting really adds to the ambiance.'},
+  {t:'CAPTURED THE CLOUDS AND SUNSET',       d:'The sky is partially cloudy and the sunlight casts a warm glow over the landscape.'},
+  {t:'PORTRAIT OF A WILD MONKEY',            d:'A curious monkey as it sits majestically on the roof. Eating nuts and lost in thoughts.'},
+  {t:'PORTRAIT OF A DOMESTIC CAT',           d:'The intense stare of a cat, as if it\'s peering into the soul of anyone who gazes upon it.'},
+];
+let cur = 0;
+const items = document.querySelectorAll('.photo-item');
+const dotsEl = document.getElementById('dots');
+
+// Build dots
+PHOTOS.forEach((_,i)=>{
+  const d=document.createElement('div');
+  d.className='dot'+(i===0?' on':'');
+  d.onclick=()=>go(i);
+  dotsEl.appendChild(d);
+});
+
+function go(i){
+  i = (i + PHOTOS.length) % PHOTOS.length;
+  items[cur].classList.remove('active');
+  cur = i;
+  items[cur].classList.add('active');
+  document.getElementById('capT').textContent = PHOTOS[i].t;
+  document.getElementById('capD').textContent = PHOTOS[i].d;
+  document.querySelectorAll('.dot').forEach((d,j)=>d.classList.toggle('on',j===i));
+  // scroll into view
+  items[cur].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight')go(cur+1);
+  if(e.key==='ArrowLeft')go(cur-1);
+});
+</script>
+</body>
+</html>

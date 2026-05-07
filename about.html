@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Designs by Devesh</title>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@700;900&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#f0ede8;font-family:'Inter',sans-serif;overflow-x:hidden;}
+
+body::after{
+  content:'';position:fixed;inset:0;
+  background-image:url('https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/cardboard-texture 1.png');
+  background-size:cover;mix-blend-mode:multiply;
+  pointer-events:none;z-index:900;opacity:.28;
+}
+
+/* ── HEADER ── */
+.site-header{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  height:clamp(56px,6.5vw,88px);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(20px,3.5vw,56px);
+  background-image:url('https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/headerED img 2.png');
+  background-size:cover;background-position:center top;
+}
+.site-header .logo{height:clamp(34px,3.2vw,55px);object-fit:contain;}
+.site-header nav{display:flex;gap:clamp(18px,2.8vw,50px);}
+.site-header nav a{color:#fff;text-decoration:none;font-size:clamp(13px,1vw,17px);font-weight:500;opacity:.45;transition:opacity .22s;}
+.site-header nav a.active,.site-header nav a:hover{opacity:1;}
+.site-header .hicons img{height:clamp(26px,2.2vw,38px);}
+
+/* ── SECTION ── */
+.about-sec{
+  position:relative;min-height:100vh;
+  padding:clamp(90px,11vh,140px) clamp(40px,6vw,130px) clamp(60px,8vh,120px);
+  overflow:hidden;background:#f0ede8;
+}
+.about-sec .tex{
+  position:absolute;top:-5%;left:-2%;width:110%;height:115%;
+  object-fit:cover;mix-blend-mode:multiply;pointer-events:none;z-index:0;opacity:.55;
+}
+.about-sec>*:not(.tex){position:relative;z-index:1;}
+
+/* ── S1: DESIGNS BY DEVESH ── */
+#s1{display:flex;align-items:center;justify-content:center;}
+.hero-brand{
+  font-family:'Lato',sans-serif;font-weight:700;
+  font-size:clamp(36px,5.7vw,96px);
+  letter-spacing:-0.011em;line-height:1;
+  white-space:nowrap;color:#000;
+  text-align:center;
+}
+.hero-brand .hl{background:#000;color:#fff;padding:.05em .18em;}
+
+/* ── S2: CHARACTER + STATS ── */
+#s2{display:flex;align-items:center;gap:clamp(30px,5vw,100px);}
+
+.char-wrap{
+  flex-shrink:0;
+  width:clamp(160px,27vw,454px);
+  position:relative;
+}
+.char-wrap img{width:100%;display:block;}
+
+.stats-wrap{flex:1;}
+.stat-row{
+  display:flex;align-items:center;gap:clamp(12px,1.5vw,24px);
+  margin-bottom:clamp(14px,2vh,30px);
+  position:relative;
+}
+.stat-label{
+  font-family:'Lato',sans-serif;font-weight:700;
+  font-size:clamp(18px,2.2vw,40px);
+  letter-spacing:-.02em;color:#000;
+  white-space:nowrap;
+}
+.ink-blob{
+  position:relative;
+  width:clamp(60px,8vw,140px);
+  height:clamp(60px,8vw,140px);
+  flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.ink-blob img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;
+}
+.ink-blob .num{
+  position:relative;z-index:2;
+  font-family:'Lato',sans-serif;font-weight:900;
+  font-size:clamp(14px,1.8vw,32px);
+  color:#fff;letter-spacing:-.02em;
+}
+
+/* Stagger rows */
+.stat-row:nth-child(2){margin-left:clamp(20px,4vw,80px);}
+.stat-row:nth-child(3){margin-left:clamp(40px,8vw,160px);}
+
+/* ── S3: DESIGN PHILOSOPHY + DOCK ── */
+#s3 .about-text{
+  font-family:'Inter',sans-serif;font-weight:500;
+  font-size:clamp(14px,1.5vw,26px);
+  line-height:1.65;
+  max-width:clamp(400px,80vw,1300px);
+  color:#000;
+  margin-bottom:clamp(30px,5vw,80px);
+}
+.dock-label{
+  font-family:'Inter',sans-serif;font-weight:700;
+  font-size:clamp(18px,2vw,36px);color:#000;
+  margin-bottom:clamp(16px,2vw,28px);
+}
+.dock{
+  display:flex;gap:clamp(10px,1.5vw,24px);
+  align-items:flex-end;
+  background:rgba(0,0,0,.06);
+  border-radius:clamp(16px,2vw,28px);
+  padding:clamp(18px,2.2vw,36px);
+  width:fit-content;
+  border:1px solid rgba(0,0,0,.07);
+}
+.dock-icon{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  cursor:pointer;
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1);
+}
+.dock-icon:hover{transform:translateY(-14px) scale(1.12);}
+.icon-box{
+  width:clamp(54px,7vw,110px);height:clamp(54px,7vw,110px);
+  border-radius:clamp(10px,1.3vw,22px);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Lato',sans-serif;font-weight:900;
+  font-size:clamp(16px,2.4vw,40px);
+  color:#fff;
+  box-shadow:0 6px 20px rgba(0,0,0,.2);
+  position:relative;overflow:hidden;
+}
+.icon-box::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:48%;
+  background:rgba(255,255,255,.12);border-radius:inherit;
+}
+.icon-label{
+  font-family:'Inter',sans-serif;
+  font-size:clamp(9px,.65vw,11px);color:#555;white-space:nowrap;
+}
+.i-fg{background:linear-gradient(145deg,#1e1e1e,#0d0d0d);}
+.i-ps{background:linear-gradient(145deg,#001e36,#31a8ff);}
+.i-ai{background:linear-gradient(145deg,#ff9a00,#ff6b00);}
+.i-pr{background:linear-gradient(145deg,#ea77ff,#9b57ff);}
+.i-ae{background:linear-gradient(145deg,#9999ff,#3d065e);}
+
+/* ── FOOTER ── */
+.site-footer{
+  background:#000;
+  padding:clamp(20px,2.5vw,34px) clamp(40px,6vw,130px);
+  display:flex;align-items:center;justify-content:space-between;
+  position:relative;z-index:10;
+}
+.site-footer img{height:clamp(32px,3vw,52px);}
+.site-footer nav{display:flex;gap:clamp(14px,2vw,32px);}
+.site-footer nav a{color:#fff;text-decoration:none;font-size:clamp(11px,.85vw,14px);opacity:.55;transition:opacity .2s;}
+.site-footer nav a:hover{opacity:1;}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1);}
+.rv.d1{transition-delay:.1s;}.rv.d2{transition-delay:.2s;}.rv.d3{transition-delay:.3s;}
+.rv.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <img class="logo" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/ddw 2.png" alt="DDW">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="about.html" class="active">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="hicons"><img src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/glass ui.png" alt=""></div>
+</header>
+
+<!-- S1: DESIGNS BY DEVESH -->
+<section class="about-sec" id="s1">
+  <img class="tex" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/cardboard-texture 1.png" alt="">
+  <div class="hero-brand rv">
+    <span class="hl">DESIGNS</span>&nbsp;BY&nbsp;DEVESH
+  </div>
+</section>
+
+<!-- S2: CHARACTER + STATS + INK SPLATS -->
+<section class="about-sec" id="s2">
+  <img class="tex" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/cardboard-texture 1.png" alt="">
+
+  <div class="char-wrap rv">
+    <img src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/charac1 1.png" alt="Devesh Samaria">
+  </div>
+
+  <div class="stats-wrap">
+    <div class="stat-row rv d1">
+      <span class="stat-label">Year of Experience</span>
+      <div class="ink-blob">
+        <img src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/ink-droplett 1.png" alt="">
+        <span class="num">02+</span>
+      </div>
+    </div>
+    <div class="stat-row rv d2">
+      <span class="stat-label">Projects Completed</span>
+      <div class="ink-blob">
+        <img src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/ink-droplett 1.png" alt="">
+        <span class="num">20+</span>
+      </div>
+    </div>
+    <div class="stat-row rv d3">
+      <span class="stat-label">Satisfied Clients</span>
+      <div class="ink-blob">
+        <img src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/ink-droplett 1.png" alt="">
+        <span class="num">10+</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S3: PHILOSOPHY + DESIGN DOCK -->
+<section class="about-sec" id="s3">
+  <img class="tex" src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/cardboard-texture 1.png" alt="">
+  <p class="about-text rv">I practice a minimal, purpose-driven design philosophy where clarity, function, and meaning come first. Much of my inspiration comes from, real-world interactions, and small everyday experiences. I focus on thoughtful observation instead of following trends.</p>
+
+  <div class="dock-label rv d1">Design Dock</div>
+
+  <div class="dock rv d2">
+    <div class="dock-icon">
+      <div class="icon-box i-fg">
+        <svg width="46%" viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 28.5C19 24.6 22.1 21.5 26 21.5H33C36.9 21.5 40 24.6 40 28.5C40 32.4 36.9 35.5 33 35.5H26C22.1 35.5 19 32.4 19 28.5Z" fill="white"/>
+          <path d="M0 9.5C0 5.6 3.1 2.5 7 2.5H14C17.9 2.5 21 5.6 21 9.5V16.5H14C10.1 16.5 7 13.4 7 9.5H0Z" fill="#FF7262"/>
+          <path d="M0 28.5C0 24.6 3.1 21.5 7 21.5H21V35.5H7C3.1 35.5 0 32.4 0 28.5Z" fill="#A259FF"/>
+          <path d="M0 47.5C0 43.6 3.1 40.5 7 40.5H21V47.5C21 51.4 17.9 54.5 14 54.5H7C3.1 54.5 0 51.4 0 47.5Z" fill="#0ACF83"/>
+          <path d="M21 2.5H35C38.9 2.5 42 5.6 42 9.5C42 13.4 38.9 16.5 35 16.5H21V2.5Z" fill="#FF7262"/>
+        </svg>
+      </div>
+      <span class="icon-label">Figma</span>
+    </div>
+    <div class="dock-icon">
+      <div class="icon-box i-ps">
+        <span style="font-family:'Lato',sans-serif;font-weight:900;">Ps</span>
+      </div>
+      <span class="icon-label">Photoshop</span>
+    </div>
+    <div class="dock-icon">
+      <div class="icon-box i-ai">
+        <span style="font-family:'Lato',sans-serif;font-weight:900;">Ai</span>
+      </div>
+      <span class="icon-label">Illustrator</span>
+    </div>
+    <div class="dock-icon">
+      <div class="icon-box i-pr">
+        <span style="font-family:'Lato',sans-serif;font-weight:900;">Pr</span>
+      </div>
+      <span class="icon-label">Premiere Pro</span>
+    </div>
+    <div class="dock-icon">
+      <div class="icon-box i-ae">
+        <span style="font-family:'Lato',sans-serif;font-weight:900;">Ae</span>
+      </div>
+      <span class="icon-label">After Effects</span>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <img src="https://raw.githubusercontent.com/editbydevesh/Portfolio/main/Assests/ddw 2.png" alt="DDW">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in');}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
